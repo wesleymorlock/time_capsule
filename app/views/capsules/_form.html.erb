@@ -1,0 +1,23 @@
+<%= form_with(model: capsule, local: true) do |form| %>
+  <% if capsule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(capsule.errors.count, "error") %> prohibited this capsule from being saved:</h2>
+
+      <ul>
+        <% capsule.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+
+  <%= form.label :launch_date %>
+  <%= form.date_field :launch_date %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
